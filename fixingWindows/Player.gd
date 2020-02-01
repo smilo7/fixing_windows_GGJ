@@ -12,7 +12,6 @@ const DE_ACCELERATION = 5
 
 onready var anim_player = $AnimationPlayer
 onready var raycast = $RayCast
-onready var wrench_count = $CanvasLayer/wrench_count
 var gravity = -9.8
 var velocity = Vector3()
 var newVel = Vector3()
@@ -96,7 +95,6 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("attack") and !anim_player.is_playing():
 		anim_player.play("attack")
-		wrench_count.decrease_wrenches()
 		var coll = raycast.get_collider()
 		if raycast.is_colliding() and coll.has_method("kill"): #if object it is colliding with has a kill method then kill it
 			coll.kill()
