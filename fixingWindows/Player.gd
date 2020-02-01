@@ -30,10 +30,17 @@ func _ready():
 #for mouse movement
 func _input(event):
 	if event is InputEventMouseMotion:
-		if view_x_pos >= -10 and view_x_pos <= 10:
+		if view_x_pos > -10 and view_x_pos < 10:
 			rotation_degrees.x -= MOUSE_SENS * event.relative.y
 			view_x_pos -= MOUSE_SENS * event.relative.y
 			print(view_x_pos)
+		else:
+			if view_x_pos > -10:
+				view_x_pos -= 1
+				rotation_degrees.x -= 1
+			else:
+				view_x_pos += 1
+				rotation_degrees.x +=1
 		
 		rotation_degrees.y -= MOUSE_SENS * event.relative.x
 		rotate -= (MOUSE_SENS * event.relative.x) * 3.141593 / 180
