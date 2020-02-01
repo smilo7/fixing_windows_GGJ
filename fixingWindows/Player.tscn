@@ -6,7 +6,7 @@
 [ext_resource path="res://Sprites/spanner_count.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
-height = 2.78862
+height = 5.31432
 
 [sub_resource type="Animation" id=2]
 resource_name = "attack"
@@ -67,7 +67,7 @@ __meta__ = {
 }
 
 [node name="throw" type="Sprite" parent="CanvasLayer/Control"]
-position = Vector2( 466.88, -287.512 )
+position = Vector2( 311.553, -317.576 )
 scale = Vector2( 10, 10 )
 texture = ExtResource( 2 )
 hframes = 10
@@ -81,10 +81,12 @@ hframes = 2
 frame = 1
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013, 3.72068, 0.102916 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013, 5.268, 0.103 )
+fov = 86.7
+size = 62.59
 
 [node name="wrench_count" type="Sprite" parent="."]
-position = Vector2( 557.875, 626.668 )
+position = Vector2( 521.13, 444.618 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
 hframes = 9
