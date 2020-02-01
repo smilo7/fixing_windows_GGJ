@@ -7,13 +7,13 @@
 [ext_resource path="res://Sprites/mike_stats.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/comp_stats.png" type="Texture" id=6]
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=1]
 
 [sub_resource type="Animation" id=2]
 resource_name = "attack"
 length = 1.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Control/throw:frame")
+tracks/0/path = NodePath("CanvasLayer/throw:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -25,7 +25,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CanvasLayer/Control/crosshair:frame")
+tracks/1/path = NodePath("CanvasLayer/crosshair:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -42,7 +42,7 @@ script = ExtResource( 3 )
 
 [node name="player_collision" type="CollisionShape" parent="."]
 transform = Transform( 1.313, 0, 0, 0, -6.39498e-08, -3.165, 0, 1.463, -1.38347e-07, 0, 3.265, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="RayCast" type="RayCast" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.387993, 0 )
@@ -57,50 +57,40 @@ root_node = NodePath("../CanvasLayer/Control/crosshair")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 512.0
-margin_top = 600.0
-margin_right = -512.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="throw" type="Sprite" parent="CanvasLayer/Control"]
-position = Vector2( 218.488, -162.33 )
-scale = Vector2( 5.06539, 5.10556 )
+[node name="throw" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 1695.79, 1056.2 )
+scale = Vector2( 12, 12 )
 texture = ExtResource( 2 )
 hframes = 10
 frame = 6
 
-[node name="crosshair" type="Sprite" parent="CanvasLayer/Control"]
-position = Vector2( -4.90698, -330.452 )
-scale = Vector2( 3, 3 )
+[node name="crosshair" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 1237.41, 669.336 )
+scale = Vector2( 5, 5 )
 texture = ExtResource( 1 )
 hframes = 2
 frame = 1
 
 [node name="wrench_count" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 215.157, 517.149 )
-scale = Vector2( 1.7, 1.7 )
+position = Vector2( 451.406, 1249.3 )
+scale = Vector2( 3.68057, 4.1278 )
 texture = ExtResource( 4 )
 hframes = 9
 
 [node name="comp_health" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 929.954, 507.694 )
-scale = Vector2( 2, 2 )
+position = Vector2( 1058.5, 1248.82 )
+scale = Vector2( 4.1375, 4.10688 )
 z_as_relative = false
 texture = ExtResource( 6 )
 hframes = 4
 
 [node name="player_health" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 94.85, 358.95 )
-scale = Vector2( 2, 2 )
+position = Vector2( 175.828, 911.132 )
+scale = Vector2( 4, 4 )
 texture = ExtResource( 5 )
 hframes = 5
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013, 5.268, 0.103 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013, 8.33722, 0.103 )
 fov = 86.7
 size = 62.59

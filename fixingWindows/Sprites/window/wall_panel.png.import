@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/wall_panel.png-a7b3c0394aa1c9801e7558172d3d51cd.image"
+
+[deps]
+
+source_file="res://Sprites/window/wall_panel.png"
+dest_files=[ "res://.import/wall_panel.png-a7b3c0394aa1c9801e7558172d3d51cd.image" ]
+
+[params]
+

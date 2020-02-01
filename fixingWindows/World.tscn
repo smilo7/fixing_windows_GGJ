@@ -1,35 +1,38 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Zombie.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/floor.png" type="Texture" id=3]
 [ext_resource path="res://wall2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/ceiling.png" type="Texture" id=5]
+[ext_resource path="res://World.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/window/window_0.png" type="Texture" id=7]
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.504332, 0.517808, 0.175499 )
 
-[sub_resource type="QuadMesh" id=3]
+[sub_resource type="QuadMesh" id=2]
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=3]
 albedo_texture = ExtResource( 3 )
 
-[sub_resource type="BoxShape" id=5]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 0.50445, 0.49523, 1 )
 
-[sub_resource type="QuadMesh" id=6]
+[sub_resource type="QuadMesh" id=5]
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=6]
 params_line_width = 0.1
 albedo_texture = ExtResource( 5 )
 
-[sub_resource type="BoxShape" id=8]
+[sub_resource type="BoxShape" id=7]
 extents = Vector3( 0.487255, 0.497971, 1 )
 
 [node name="World" type="Spatial"]
+script = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0470501, 2.19683, -0.449815 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0471202, 2.19701, -0.449822 )
 
 [node name="Zombie" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.10346, -0.34 )
@@ -47,28 +50,27 @@ transform = Transform( 58.5, 0, 0, 0, 16.042, 0, 0, 0, 3.359, -0.084, 8.068, -20
 
 [node name="CollisionShape" type="CollisionShape" parent="wall_back/StaticBody"]
 transform = Transform( 1.11729, 0, 0, 0, 1.11729, 0, 0, 0, 1.11729, 0, 0, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="floor" type="MeshInstance" parent="."]
 transform = Transform( 58.471, 0, 0, 0, -2.0644e-06, 1, 0, -47.228, -4.37114e-08, 0, 0, 2.638 )
-mesh = SubResource( 3 )
-material/0 = SubResource( 4 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
 
 [node name="StaticBody" type="StaticBody" parent="floor"]
 
 [node name="CollisionShape" type="CollisionShape" parent="floor/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="Ceiling" type="MeshInstance" parent="."]
 transform = Transform( 58, 0, 0, 0, -1.61642e-06, -0.786793, 0, 47, -4.37114e-08, 0, 16.084, 2.459 )
-mesh = SubResource( 6 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
 
 [node name="StaticBody" type="StaticBody" parent="Ceiling"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Ceiling/StaticBody"]
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="Ceiling lamp" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 16.0978, 0 )
@@ -77,3 +79,7 @@ spot_range = 30.5
 spot_attenuation = 0.965937
 spot_angle = 78.6216
 spot_angle_attenuation = 2.46229
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( -4.52382e-06, 0, 1, 0, 26.725, 0, -27.767, 0, -1.62921e-07, -29.023, 8.072, 1.46816 )
+texture = ExtResource( 7 )
