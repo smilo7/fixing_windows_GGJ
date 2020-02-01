@@ -1,8 +1,8 @@
-# Fixing Windows
+# Fixing Windows - Global Game Jam
 
 ## Love you my brodas
 
-Do work!!
+## Sleeping time 😴
 
 ![alt](./fixingWindows/Sprites/comp_stats.png)
 
