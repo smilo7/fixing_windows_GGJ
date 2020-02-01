@@ -5,8 +5,8 @@
 [ext_resource path="res://Player.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/spanner_count.png" type="Texture" id=4]
 
-[sub_resource type="CapsuleShape" id=1]
-height = 5.31432
+[sub_resource type="SphereShape" id=3]
+radius = 3.75185
 
 [sub_resource type="Animation" id=2]
 resource_name = "attack"
@@ -41,7 +41,7 @@ script = ExtResource( 3 )
 
 [node name="player_collision" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 2.52049, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="RayCast" type="RayCast" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.387993, 0 )

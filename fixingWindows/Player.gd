@@ -18,7 +18,7 @@ var newVel = Vector3()
 var rotate = 0
 var jump_time = 0
 var falling = false
-
+var view_x_pos = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) #get mouse in centre of screen and set to 
@@ -30,7 +30,11 @@ func _ready():
 #for mouse movement
 func _input(event):
 	if event is InputEventMouseMotion:
-		rotation_degrees.x -= MOUSE_SENS * event.relative.y
+		if view_x_pos >= -10 and view_x_pos <= 10:
+			rotation_degrees.x -= MOUSE_SENS * event.relative.y
+			view_x_pos -= MOUSE_SENS * event.relative.y
+			print(view_x_pos)
+		
 		rotation_degrees.y -= MOUSE_SENS * event.relative.x
 		rotate -= (MOUSE_SENS * event.relative.x) * 3.141593 / 180
 
