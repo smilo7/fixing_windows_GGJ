@@ -1,16 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://crosshair.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/crosshair_3D.png" type="Texture" id=1]
 [ext_resource path="res://Animations/throw_sprite_sheet.png" type="Texture" id=2]
 [ext_resource path="res://Player.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/spanner_count.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
+height = 2.78862
 
 [sub_resource type="Animation" id=2]
 resource_name = "attack"
 length = 1.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Control/Sprite:frame")
+tracks/0/path = NodePath("CanvasLayer/Control/throw:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -21,48 +23,68 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Control/crosshair:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.9 ),
+"transitions": PoolRealArray( 1, 36.7583, 0.0245182 ),
+"update": 1,
+"values": [ 0, 1, 0 ]
+}
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 3 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+[node name="player_collision" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 2.52049, 0 )
 shape = SubResource( 1 )
 
 [node name="RayCast" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.387993, 0 )
 enabled = true
 cast_to = Vector3( 0, 0, -2000 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/attack = SubResource( 2 )
 
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CanvasLayer/Control/crosshair")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 512.0
+margin_top = 600.0
+margin_right = -512.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="CanvasLayer/Control"]
-position = Vector2( 517.529, -242.708 )
+[node name="throw" type="Sprite" parent="CanvasLayer/Control"]
+position = Vector2( 466.88, -287.512 )
 scale = Vector2( 10, 10 )
 texture = ExtResource( 2 )
 hframes = 10
+frame = 6
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -16.0
-margin_top = -16.0
+[node name="crosshair" type="Sprite" parent="CanvasLayer/Control"]
+position = Vector2( 8.16223, -299.282 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+hframes = 2
+frame = 1
 
 [node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013, 3.72068, 0.102916 )
+
+[node name="wrench_count" type="Sprite" parent="."]
+position = Vector2( 557.875, 626.668 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+hframes = 9
