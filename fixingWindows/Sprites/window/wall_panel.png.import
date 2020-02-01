@@ -1,13 +1,34 @@
 [remap]
 
-importer="image"
-type="Image"
-path="res://.import/wall_panel.png-a7b3c0394aa1c9801e7558172d3d51cd.image"
+importer="texture"
+type="StreamTexture"
+path="res://.import/wall_panel.png-a7b3c0394aa1c9801e7558172d3d51cd.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Sprites/window/wall_panel.png"
-dest_files=[ "res://.import/wall_panel.png-a7b3c0394aa1c9801e7558172d3d51cd.image" ]
+dest_files=[ "res://.import/wall_panel.png-a7b3c0394aa1c9801e7558172d3d51cd.stex" ]
 
 [params]
 
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
