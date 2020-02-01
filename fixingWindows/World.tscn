@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Zombie.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Sprites/ceiling.png" type="Texture" id=5]
 [ext_resource path="res://World.gd" type="Script" id=6]
 [ext_resource path="res://Sprites/window/window_0.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/window/wall_panel.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/window/door_panel.png" type="Texture" id=9]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.504332, 0.517808, 0.175499 )
@@ -28,11 +30,30 @@ albedo_texture = ExtResource( 5 )
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 0.487255, 0.497971, 1 )
 
+[sub_resource type="QuadMesh" id=8]
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_texture = ExtResource( 8 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 2.18536, 0.528547, 1 )
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 2.18183, 0.549171, 1 )
+
+[sub_resource type="QuadMesh" id=12]
+
+[sub_resource type="SpatialMaterial" id=13]
+albedo_texture = ExtResource( 9 )
+
+[sub_resource type="BoxShape" id=14]
+extents = Vector3( 1.38464, 1, 0.411751 )
+
 [node name="World" type="Spatial"]
 script = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0471202, 2.19701, -0.449822 )
 
 [node name="Zombie" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.10346, -0.34 )
@@ -53,7 +74,7 @@ transform = Transform( 1.11729, 0, 0, 0, 1.11729, 0, 0, 0, 1.11729, 0, 0, 0 )
 shape = SubResource( 1 )
 
 [node name="floor" type="MeshInstance" parent="."]
-transform = Transform( 58.471, 0, 0, 0, -2.0644e-06, 1, 0, -47.228, -4.37114e-08, 0, 0, 2.638 )
+transform = Transform( 57.853, 0, 0, 0, -1.91893e-06, 1, 0, -43.9, -4.37114e-08, -0.189185, 0, 0.289358 )
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
@@ -63,7 +84,7 @@ material/0 = SubResource( 3 )
 shape = SubResource( 4 )
 
 [node name="Ceiling" type="MeshInstance" parent="."]
-transform = Transform( 58, 0, 0, 0, -1.61642e-06, -0.786793, 0, 47, -4.37114e-08, 0, 16.084, 2.459 )
+transform = Transform( 58, 0, 0, 0, -1.61642e-06, -0.786793, 0, 47, -4.37114e-08, 0, 16.084, -0.248409 )
 mesh = SubResource( 5 )
 material/0 = SubResource( 6 )
 
@@ -80,6 +101,59 @@ spot_attenuation = 0.965937
 spot_angle = 78.6216
 spot_angle_attenuation = 2.46229
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform( -4.52382e-06, 0, 1, 0, 26.725, 0, -27.767, 0, -1.62921e-07, -29.023, 8.072, 1.46816 )
+[node name="window_left" type="Sprite3D" parent="."]
+transform = Transform( -4.52382e-06, 0, 1, 0, 26.725, 0, -27.767, 0, -1.62921e-07, -28.7617, 8.01293, 0.435304 )
 texture = ExtResource( 7 )
+
+[node name="window_right" type="Sprite3D" parent="."]
+transform = Transform( -4.52382e-06, 0, 1, 0, 26.725, 0, -27.767, 0, -1.62921e-07, 27.9283, 8.01293, 0.342593 )
+texture = ExtResource( 7 )
+
+[node name="window_behind" type="Sprite3D" parent="."]
+transform = Transform( -27.767, 0, -3.89414e-07, 0, 26.623, 0, 1.08129e-05, 0, -1, -8.49097, 7.96948, 21.6564 )
+texture = ExtResource( 7 )
+
+[node name="wall_left_01" type="MeshInstance" parent="."]
+transform = Transform( -2.60168e-06, 0, 1, 0, 15.974, 0, -15.969, 0, -1.62921e-07, -28.7549, 8.06393, -12.8324 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )
+
+[node name="StaticBody" type="StaticBody" parent="wall_left_01"]
+
+[node name="CollisionShape" type="CollisionShape" parent="wall_left_01/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="wall_left_02" type="MeshInstance" parent="."]
+transform = Transform( -2.60168e-06, 0, 1, 0, 15.974, 0, -15.969, 0, -1.62921e-07, -28.7549, 8.06393, 13.7544 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )
+
+[node name="wall_right_01" type="MeshInstance" parent="."]
+transform = Transform( 1.90428e-07, 0, -1, 0, 15.974, 0, 15.969, 0, 1.19249e-08, 28.0009, 8.123, -13.0281 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )
+
+[node name="StaticBody" type="StaticBody" parent="wall_right_01"]
+
+[node name="CollisionShape" type="CollisionShape" parent="wall_right_01/StaticBody"]
+shape = SubResource( 11 )
+
+[node name="wall_right_02" type="MeshInstance" parent="."]
+transform = Transform( 1.90428e-07, 0, -1, 0, 15.974, 0, 15.969, 0, 1.19249e-08, 27.986, 8.123, 13.6689 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )
+
+[node name="door_panel" type="MeshInstance" parent="."]
+transform = Transform( -31.577, 0, -3.89414e-07, 0, 15.974, 0, 1.22965e-05, 0, -1, 12.5797, 7.99559, 21.6314 )
+mesh = SubResource( 12 )
+material/0 = SubResource( 13 )
+
+[node name="StaticBody" type="StaticBody" parent="door_panel"]
+
+[node name="CollisionShape" type="CollisionShape" parent="door_panel/StaticBody"]
+shape = SubResource( 14 )
+
+[node name="wall_behind_03" type="MeshInstance" parent="."]
+transform = Transform( -15.969, 0, -3.25841e-07, 0, 15.974, 0, 5.20336e-06, 0, -1, -21.8322, 8.06393, 21.5349 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )
