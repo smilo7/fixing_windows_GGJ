@@ -56,13 +56,13 @@ script = ExtResource( 6 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0471202, 2.19701, -0.449822 )
 
 [node name="Zombie" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.10346, -0.34 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0576, 6.03026, 33.2777 )
 
 [node name="Zombie2" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.527, 1.87382, 1.997 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.527, 7.20295, 35.2088 )
 
 [node name="Zombie3" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.872, 2.50886, -1.326 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.8403, 6.03193, 8.73522 )
 
 [node name="wall_back" parent="." instance=ExtResource( 4 )]
 transform = Transform( 58.5, 0, 0, 0, 16.042, 0, 0, 0, 3.359, -0.084, 8.068, -20.985 )
