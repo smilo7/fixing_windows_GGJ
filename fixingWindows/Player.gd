@@ -1,18 +1,17 @@
 extends KinematicBody
 
-
 #const MOVE_SPEED = 8
 const SPRINT_SPEED = 1.05
-const MAX_JUMP_TIME = 2
 const MOUSE_SENS = 0.5
-const MOVE_SPEED = 6
-const ACCELERATION = 3
+const MOVE_SPEED = 10
+const ACCELERATION = 5
 const DE_ACCELERATION = 5
 
 
 onready var anim_player = $AnimationPlayer
 onready var raycast = $RayCast
 onready var wrench_count = $CanvasLayer/wrench_count
+
 var gravity = -9.8
 var velocity = Vector3()
 var newVel = Vector3()
@@ -31,19 +30,7 @@ func _ready():
 #for mouse movement
 func _input(event):
 	if event is InputEventMouseMotion:
-		if view_x_pos > -70 and view_x_pos < 70:
-			rotation_degrees.x -= MOUSE_SENS * event.relative.y
-			view_x_pos -= MOUSE_SENS * event.relative.y
-			print(view_x_pos)
-		else:
-			if view_x_pos > -70:
-				view_x_pos -= 1
-				rotation_degrees.x -= 1
-			else:
-				view_x_pos += 1
-				rotation_degrees.x +=1
-		
-		rotation_degrees.y -= MOUSE_SENS * event.relative.x
+
 		rotate -= (MOUSE_SENS * event.relative.x) * 3.141593 / 180
 
 func _process(delta):
@@ -71,6 +58,10 @@ func _physics_process(delta):
 	
 	velocity.y += delta * gravity
 	
+	if Input.is_action_just_pressed("jump") and not(Input.is_action_pressed("sprint")):
+		if is_on_floor(): 
+			velocity.y = 5
+
 	var hv = velocity
 	hv.y = 0
 	
@@ -88,9 +79,6 @@ func _physics_process(delta):
 	if Input.is_action_pressed("sprint"):
 		speed_Modifier = SPRINT_SPEED
 	
-#	if Input.is_action_just_pressed("jump") and falling != true:
-#		velocity.y = 5 * speed_Modifier
-
 	
 	velocity = move_and_slide(velocity * speed_Modifier, Vector3(0,1,0))
 	

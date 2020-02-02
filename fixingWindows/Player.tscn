@@ -8,7 +8,9 @@
 [ext_resource path="res://Sprites/comp_stats.png" type="Texture" id=6]
 [ext_resource path="res://wrench_count.gd" type="Script" id=7]
 
-[sub_resource type="BoxShape" id=1]
+[sub_resource type="CapsuleShape" id=14]
+radius = 1.08619
+height = 1.77956
 
 [sub_resource type="Animation" id=2]
 resource_name = "attack"
@@ -91,8 +93,8 @@ animations = [ {
 script = ExtResource( 3 )
 
 [node name="player_collision" type="CollisionShape" parent="."]
-transform = Transform( 1.313, 0, 0, 0, -6.39498e-08, -3.165, 0, 1.463, -1.38347e-07, 0, 3.265, 0 )
-shape = SubResource( 1 )
+transform = Transform( 2, 0, 0, 0, -6.39498e-08, -4, 0, 1.463, -1.74846e-07, 0, 8.20522, 0 )
+shape = SubResource( 14 )
 
 [node name="RayCast" type="RayCast" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.387993, 0 )
@@ -140,6 +142,6 @@ texture = ExtResource( 5 )
 hframes = 5
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013, 8.33722, 0.103 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013, 13.891, 0.103 )
 fov = 86.7
 size = 62.59
