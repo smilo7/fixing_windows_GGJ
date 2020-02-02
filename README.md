@@ -6,7 +6,9 @@ A game about fixing windows! Both your windows and computer are in constant ruin
 
 Try to fix your computer and don't let yourself be outrun by the zombie horde. 
 
-![alt](./game\ screenshot.png)
+![alt](screenshot.png)
+
+![alt](fixingwindows2.png)
 
 ![alt](./fixingWindows/Sprites/comp_stats.png)
 
