@@ -122,20 +122,20 @@ texture = ExtResource( 1 )
 hframes = 2
 
 [node name="wrench_count" type="AnimatedSprite" parent="CanvasLayer"]
-position = Vector2( 451.406, 1249.3 )
+position = Vector2( 451.406, 1250 )
 scale = Vector2( 3.68057, 4.1278 )
 frames = SubResource( 13 )
 script = ExtResource( 7 )
 
 [node name="comp_health" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 1058.5, 1248.82 )
+position = Vector2( 2364.79, 1250 )
 scale = Vector2( 4.1375, 4.10688 )
 z_as_relative = false
 texture = ExtResource( 6 )
 hframes = 4
 
 [node name="player_health" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 175.828, 911.132 )
+position = Vector2( 1093.67, 1250 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 5 )
 hframes = 5
