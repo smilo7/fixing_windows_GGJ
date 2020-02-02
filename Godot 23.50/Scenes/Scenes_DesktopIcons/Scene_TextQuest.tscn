@@ -1,0 +1,366 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://png/Background/bezel_logoed.png" type="Texture" id=1]
+[ext_resource path="res://png/Background/off.png" type="Texture" id=2]
+[ext_resource path="res://png/Icons/anti-virus.png" type="Texture" id=3]
+[ext_resource path="res://png/Background/woodenTable.png" type="Texture" id=4]
+[ext_resource path="res://png/Icons/portmail.png" type="Texture" id=5]
+[ext_resource path="res://png/startbutton.png" type="Texture" id=6]
+[ext_resource path="res://png/Background/desktopbasic_logoed.png" type="Texture" id=7]
+[ext_resource path="res://png/Background/CURSOR.png" type="Texture" id=8]
+[ext_resource path="res://png/Icons/recycling bin.png" type="Texture" id=9]
+[ext_resource path="res://png/Icons/mycomputer.png" type="Texture" id=10]
+[ext_resource path="res://png/Background/on.png" type="Texture" id=11]
+[ext_resource path="res://png/Icons/portnetexplorer.png" type="Texture" id=12]
+[ext_resource path="res://png/Icons/textquest.png" type="Texture" id=13]
+[ext_resource path="res://png/Icons/messenger.png" type="Texture" id=14]
+[ext_resource path="res://png/Icons/repair tool.png" type="Texture" id=15]
+[ext_resource path="res://sound1.wav" type="AudioStream" id=16]
+[ext_resource path="res://Scenes/Scene1Nodes.gd" type="Script" id=17]
+[ext_resource path="res://Scenes/PortmailNode.gd" type="Script" id=18]
+[ext_resource path="res://Node2D.gd" type="Script" id=19]
+[ext_resource path="res://ChangeScene.gd" type="Script" id=20]
+[ext_resource path="res://Scenes/EscButton.gd" type="Script" id=21]
+[ext_resource path="res://png/questionBox.png" type="Texture" id=22]
+
+[sub_resource type="AnimatedTexture" id=1]
+frames = 2
+frame_1/delay_sec = 0.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 493.889, 381.658 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[node name="Scene1Nodes8" type="Node2D"]
+position = Vector2( 782.837, 440.511 )
+script = ExtResource( 17 )
+
+[node name="bezel_done" type="Sprite" parent="."]
+visible = false
+position = Vector2( -11.2487, -3.17755 )
+scale = Vector2( 2.97757, 2.54691 )
+texture = ExtResource( 1 )
+
+[node name="SceneChangeNode" type="Node2D" parent="."]
+position = Vector2( -30.1884, 2.3833 )
+z_index = 20
+script = ExtResource( 19 )
+
+[node name="RichTextLabel" type="TextureButton" parent="SceneChangeNode"]
+margin_left = 545.778
+margin_top = -374.248
+margin_right = 978.778
+margin_bottom = -178.248
+rect_scale = Vector2( 0.541292, 0.583068 )
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeScene" type="Button" parent="SceneChangeNode"]
+visible = false
+show_behind_parent = true
+margin_left = 564.49
+margin_top = -376.327
+margin_right = 577.49
+margin_bottom = -356.327
+rect_scale = Vector2( 6.28255, 4.01848 )
+disabled = true
+icon = SubResource( 1 )
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cursor" type="Sprite" parent="."]
+position = Vector2( -382.747, -2.30292 )
+rotation = -0.282709
+scale = Vector2( 0.620315, 0.679995 )
+z_index = 100
+texture = ExtResource( 8 )
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Background"]
+position = Vector2( -15.1301, 31.3409 )
+scale = Vector2( 2.46019, 2.24514 )
+z_index = -112
+texture = ExtResource( 4 )
+
+[node name="RetroBezel" type="Node2D" parent="."]
+scale = Vector2( 0.92, 0.96 )
+z_index = -10
+
+[node name="TextureRect" type="TextureRect" parent="RetroBezel"]
+margin_left = -715.241
+margin_top = -456.357
+margin_right = 228.759
+margin_bottom = 251.643
+rect_scale = Vector2( 1.48, 1.25503 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EscButton" type="Node2D" parent="."]
+script = ExtResource( 21 )
+
+[node name="Button" type="Button" parent="EscButton"]
+margin_left = -609.0
+margin_top = -213.0
+margin_right = -589.0
+margin_bottom = -186.0
+rect_scale = Vector2( 2.08, 1.32 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScreenArea" type="Node2D" parent="."]
+z_index = -111
+
+[node name="Area2D" type="Area2D" parent="ScreenArea"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenArea/Area2D"]
+visible = false
+position = Vector2( -5.56104, -14.2997 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="ScreenArea"]
+position = Vector2( -5.82904, -12.7109 )
+scale = Vector2( 2.11439, 1.87739 )
+z_index = -1
+texture = ExtResource( 7 )
+
+[node name="MyComputerNode" type="Node2D" parent="."]
+position = Vector2( -484.432, -279.123 )
+scale = Vector2( 4.01713, 1 )
+script = ExtResource( 18 )
+
+[node name="TextureButton" type="TextureButton" parent="MyComputerNode"]
+margin_left = 2.66008
+margin_top = -87.5813
+margin_right = 42.66
+margin_bottom = -47.5813
+rect_scale = Vector2( 0.317058, 1.16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="MyComputerNode/TextureButton"]
+position = Vector2( 21.8103, 20.8006 )
+scale = Vector2( 0.496072, 0.532542 )
+texture = ExtResource( 10 )
+
+[node name="PortmailNode" type="Node2D" parent="."]
+position = Vector2( -471.8, -282.281 )
+scale = Vector2( 4.01713, 1 )
+script = ExtResource( 18 )
+
+[node name="TextureButton" type="TextureButton" parent="PortmailNode"]
+margin_left = 1.61194
+margin_top = -8.63391
+margin_right = 41.6119
+margin_bottom = 31.3661
+rect_scale = Vector2( 0.317058, 1.16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="PortmailNode/TextureButton"]
+position = Vector2( 14.3723, 28.0601 )
+scale = Vector2( 0.527478, 0.639999 )
+texture = ExtResource( 5 )
+
+[node name="MessengerNode" type="Node2D" parent="."]
+position = Vector2( -469.695, -204.386 )
+scale = Vector2( 4.01713, 1 )
+script = ExtResource( 18 )
+
+[node name="TextureButton" type="TextureButton" parent="MessengerNode"]
+margin_left = 1.61194
+margin_top = -8.63391
+margin_right = 41.6119
+margin_bottom = 31.3661
+rect_scale = Vector2( 0.317058, 1.16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="MessengerNode/TextureButton"]
+position = Vector2( 14.3722, 31.6899 )
+scale = Vector2( 0.496072, 0.532542 )
+texture = ExtResource( 14 )
+
+[node name="PortnetExplorerNode" type="Node2D" parent="."]
+position = Vector2( -470.748, -108.596 )
+scale = Vector2( 4.01713, 1 )
+script = ExtResource( 18 )
+
+[node name="TextureButton" type="TextureButton" parent="PortnetExplorerNode"]
+margin_left = 1.61194
+margin_top = -8.63391
+margin_right = 41.6119
+margin_bottom = 31.3661
+rect_scale = Vector2( 0.317058, 1.16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="PortnetExplorerNode/TextureButton"]
+position = Vector2( 14.3722, 31.6899 )
+scale = Vector2( 0.496072, 0.532542 )
+texture = ExtResource( 12 )
+
+[node name="AntiVirusNode" type="Node2D" parent="."]
+position = Vector2( -469.696, -13.8592 )
+scale = Vector2( 4.01713, 1 )
+script = ExtResource( 18 )
+
+[node name="TextureButton" type="TextureButton" parent="AntiVirusNode"]
+margin_left = 1.61194
+margin_top = -8.63391
+margin_right = 41.6119
+margin_bottom = 31.3661
+rect_scale = Vector2( 0.317058, 1.16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="AntiVirusNode/TextureButton"]
+position = Vector2( 14.3722, 31.6899 )
+scale = Vector2( 0.496072, 0.532542 )
+texture = ExtResource( 3 )
+
+[node name="RepairToolNode" type="Node2D" parent="."]
+position = Vector2( -469.696, 78.7725 )
+scale = Vector2( 4.01713, 1 )
+script = ExtResource( 18 )
+
+[node name="TextureButton" type="TextureButton" parent="RepairToolNode"]
+margin_left = 1.61194
+margin_top = -8.63391
+margin_right = 41.6119
+margin_bottom = 31.3661
+rect_scale = Vector2( 0.317058, 1.16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="RepairToolNode/TextureButton"]
+position = Vector2( 14.3722, 31.6899 )
+scale = Vector2( 0.496072, 0.532542 )
+texture = ExtResource( 15 )
+
+[node name="TextQuestNode" type="Node2D" parent="."]
+position = Vector2( -471.801, 164.036 )
+scale = Vector2( 4.01713, 1 )
+script = ExtResource( 18 )
+
+[node name="TextureButton" type="TextureButton" parent="TextQuestNode"]
+margin_left = 1.61194
+margin_top = -8.63391
+margin_right = 41.6119
+margin_bottom = 31.3661
+rect_scale = Vector2( 0.317058, 1.16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="TextQuestNode/TextureButton"]
+position = Vector2( 14.3722, 31.6899 )
+scale = Vector2( 0.496072, 0.532542 )
+texture = ExtResource( 13 )
+
+[node name="RecyclingBinNode" type="Node2D" parent="."]
+position = Vector2( 397.674, 244.036 )
+scale = Vector2( 4.01713, 1 )
+script = ExtResource( 18 )
+
+[node name="TextureButton" type="TextureButton" parent="RecyclingBinNode"]
+margin_left = 1.61194
+margin_top = -8.63391
+margin_right = 41.6119
+margin_bottom = 31.3661
+rect_scale = Vector2( 0.317058, 1.16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="RecyclingBinNode/TextureButton"]
+position = Vector2( 14.3722, 31.6899 )
+scale = Vector2( 0.496072, 0.532542 )
+z_index = -10
+texture = ExtResource( 9 )
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -8.42102, -12.6316 )
+scale = Vector2( 48.88, 37.2543 )
+shape = SubResource( 3 )
+
+[node name="StartButtonNode" type="Node2D" parent="."]
+position = Vector2( -431.579, 345.263 )
+scale = Vector2( 0.919999, 0.84 )
+z_index = -100
+
+[node name="TextureButton" type="TextureButton" parent="StartButtonNode"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="StartButtonNode/TextureButton"]
+position = Vector2( -3.4325, 1.25311 )
+texture = ExtResource( 6 )
+
+[node name="MouseNode" type="Node2D" parent="."]
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 16 )
+volume_db = 1.01
+
+[node name="Control" type="Control" parent="."]
+margin_left = -346.0
+margin_top = -329.0
+margin_right = 141.0
+margin_bottom = -64.0
+rect_scale = Vector2( 1.62033, 2.27408 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 5.0
+margin_top = 14.0
+margin_right = 464.0
+margin_bottom = 264.0
+text = "
+Question 1: "
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="window" type="Sprite" parent="Control"]
+position = Vector2( 240.925, 130.59 )
+scale = Vector2( 0.416027, 0.355787 )
+z_index = -10
+texture = ExtResource( 22 )
+[connection signal="pressed" from="SceneChangeNode/RichTextLabel" to="SceneChangeNode" method="_on_RichTextLabel_pressed"]
+[connection signal="pressed" from="SceneChangeNode/ChangeScene" to="SceneChangeNode/ChangeScene" method="_on_ChangeScene_pressed"]
+[connection signal="pressed" from="EscButton/Button" to="EscButton" method="_on_Button_pressed"]
+[connection signal="pressed" from="MyComputerNode/TextureButton" to="MyComputerNode" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="PortmailNode/TextureButton" to="PortmailNode" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="MessengerNode/TextureButton" to="MessengerNode" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="PortnetExplorerNode/TextureButton" to="PortnetExplorerNode" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="AntiVirusNode/TextureButton" to="AntiVirusNode" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="RepairToolNode/TextureButton" to="RepairToolNode" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="TextQuestNode/TextureButton" to="TextQuestNode" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="RecyclingBinNode/TextureButton" to="RecyclingBinNode" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]

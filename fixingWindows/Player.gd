@@ -51,6 +51,8 @@ func _process(delta):
 		get_tree().quit()
 	if Input.is_action_pressed("restart"):
 		kill()
+	if Input.is_action_pressed("screen_change"):
+			get_tree().change_scene("res://Scenes/desktop.tscn")
 	 
 func _physics_process(delta):
 	var move_vec = Vector3()
@@ -99,8 +101,14 @@ func _physics_process(delta):
 		wrench_count.decrease_wrenches()
 		var coll = raycast.get_collider()
 		print(coll)
-		if raycast.is_colliding() and coll.has_method("kill"): #if object it is colliding with has a kill method then kill it
+		if raycast.is_colliding() and coll.has_method("kill"):
+		#if raycast.is_colliding(): #if object it is colliding with has a kill method then kill it
 			coll.kill()
+			
+			
+			
+		
+			
 	
 func kill():
 	get_tree().reload_current_scene()

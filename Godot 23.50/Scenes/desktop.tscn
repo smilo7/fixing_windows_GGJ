@@ -1,0 +1,363 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://Scenes/SceneChangeNode.gd" type="Script" id=1]
+[ext_resource path="res://png/Background/desktopbasic_logoed.png" type="Texture" id=3]
+[ext_resource path="res://png/Background/bezel_logoed.png" type="Texture" id=4]
+[ext_resource path="res://png/Background/on.png" type="Texture" id=5]
+[ext_resource path="res://png/Background/woodenTable.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/EscButton.gd" type="Script" id=7]
+[ext_resource path="res://png/Background/off.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Scenes_DesktopIcons/Scene_BeeAntiVirus.tscn" type="PackedScene" id=10]
+[ext_resource path="res://png/Background/CURSOR.png" type="Texture" id=11]
+[ext_resource path="res://png/Icons/portmail.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/PortmailNode.gd" type="Script" id=13]
+[ext_resource path="res://png/Icons/anti-virus.png" type="Texture" id=14]
+[ext_resource path="res://png/startbutton.png" type="Texture" id=15]
+[ext_resource path="res://png/Icons/repair tool.png" type="Texture" id=16]
+[ext_resource path="res://png/Icons/messenger.png" type="Texture" id=17]
+[ext_resource path="res://png/Icons/recycling bin.png" type="Texture" id=18]
+[ext_resource path="res://png/Icons/mycomputer.png" type="Texture" id=19]
+[ext_resource path="res://png/Icons/portnetexplorer.png" type="Texture" id=20]
+[ext_resource path="res://png/Icons/textquest.png" type="Texture" id=21]
+[ext_resource path="res://Scenes/Scene1Nodes.gd" type="Script" id=22]
+[ext_resource path="res://sound1.wav" type="AudioStream" id=23]
+[ext_resource path="res://Scenes/Scenes_DesktopIcons/Scene_Portmail.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Scenes_DesktopIcons/Scene_RecycleBin.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scenes/Scenes_DesktopIcons/Scene_PortmailMsn.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Scenes/Scenes_DesktopIcons/Scene_RepairTool.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/Scenes_DesktopIcons/Scene_PortmailExplorer.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scenes/Scenes_DesktopIcons/Scene_TextQuest.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Scenes/Scenes_DesktopIcons/Scene_MyComputer.tscn" type="PackedScene" id=30]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 493.889, 381.658 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[node name="desktop" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 790.0
+margin_top = 440.274
+margin_right = -751.0
+margin_bottom = -500.726
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_use_anchors_": false
+}
+
+[node name="Scene1Nodes9" parent="." instance=ExtResource( 25 )]
+visible = false
+position = Vector2( -226.1, 1149.5 )
+
+[node name="Scene1Nodes8" parent="." instance=ExtResource( 29 )]
+visible = false
+position = Vector2( 556.736, 1590.01 )
+
+[node name="Scene1Nodes7" parent="." instance=ExtResource( 27 )]
+visible = false
+position = Vector2( -226.1, 1149.5 )
+
+[node name="Scene1Nodes6" parent="." instance=ExtResource( 10 )]
+visible = false
+position = Vector2( -226.1, 1149.5 )
+
+[node name="Scene1Nodes5" parent="." instance=ExtResource( 28 )]
+visible = false
+position = Vector2( -226.1, 1149.5 )
+
+[node name="Scene1Nodes4" parent="." instance=ExtResource( 26 )]
+visible = false
+position = Vector2( -681.139, 2490.97 )
+
+[node name="Scene1Nodes3" parent="." instance=ExtResource( 24 )]
+visible = false
+position = Vector2( 446.272, 2535.51 )
+
+[node name="Scene1Nodes2" parent="." instance=ExtResource( 30 )]
+visible = false
+position = Vector2( 1031.05, 2548.07 )
+
+[node name="Scene1Nodes" type="Node2D" parent="."]
+script = ExtResource( 22 )
+
+[node name="bezel_done" type="Sprite" parent="Scene1Nodes"]
+visible = false
+position = Vector2( -11.2487, -3.17755 )
+scale = Vector2( 2.97757, 2.54691 )
+texture = ExtResource( 4 )
+
+[node name="Cursor" type="Sprite" parent="Scene1Nodes"]
+position = Vector2( -382.747, -2.30292 )
+rotation = -0.282709
+scale = Vector2( 0.620315, 0.679995 )
+z_index = 100
+texture = ExtResource( 11 )
+
+[node name="Background" type="Node2D" parent="Scene1Nodes"]
+
+[node name="Sprite" type="Sprite" parent="Scene1Nodes/Background"]
+position = Vector2( -15.1301, 31.3409 )
+scale = Vector2( 2.46019, 2.24514 )
+z_index = -112
+texture = ExtResource( 6 )
+
+[node name="RetroBezel" type="Node2D" parent="Scene1Nodes"]
+scale = Vector2( 0.92, 0.96 )
+z_index = -10
+
+[node name="TextureRect" type="TextureRect" parent="Scene1Nodes/RetroBezel"]
+margin_left = -715.241
+margin_top = -456.357
+margin_right = 228.759
+margin_bottom = 251.643
+rect_scale = Vector2( 1.48, 1.25503 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EscButton" type="Node2D" parent="Scene1Nodes"]
+script = ExtResource( 7 )
+
+[node name="Button" type="Button" parent="Scene1Nodes/EscButton"]
+margin_left = -609.0
+margin_top = -213.0
+margin_right = -589.0
+margin_bottom = -186.0
+rect_scale = Vector2( 2.08, 1.32 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScreenArea" type="Node2D" parent="Scene1Nodes"]
+z_index = -111
+
+[node name="Area2D" type="Area2D" parent="Scene1Nodes/ScreenArea"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene1Nodes/ScreenArea/Area2D"]
+visible = false
+position = Vector2( -5.56104, -14.2997 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Scene1Nodes/ScreenArea"]
+position = Vector2( -5.82904, -12.7109 )
+scale = Vector2( 2.11439, 1.87739 )
+z_index = -1
+texture = ExtResource( 3 )
+
+[node name="MyComputerNode" type="Node2D" parent="Scene1Nodes"]
+position = Vector2( -484.432, -279.123 )
+scale = Vector2( 4.01713, 1 )
+script = ExtResource( 13 )
+
+[node name="TextureButton" type="TextureButton" parent="Scene1Nodes/MyComputerNode"]
+margin_left = 2.66008
+margin_top = -87.5813
+margin_right = 42.66
+margin_bottom = -47.5813
+rect_scale = Vector2( 0.317058, 1.16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Scene1Nodes/MyComputerNode/TextureButton"]
+position = Vector2( 21.8103, 20.8006 )
+scale = Vector2( 0.496072, 0.532542 )
+texture = ExtResource( 19 )
+
+[node name="PortmailNode" type="Node2D" parent="Scene1Nodes"]
+position = Vector2( -471.8, -282.281 )
+scale = Vector2( 4.01713, 1 )
+script = ExtResource( 13 )
+
+[node name="TextureButton" type="TextureButton" parent="Scene1Nodes/PortmailNode"]
+margin_left = 1.61194
+margin_top = -8.63391
+margin_right = 41.6119
+margin_bottom = 31.3661
+rect_scale = Vector2( 0.317058, 1.16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Scene1Nodes/PortmailNode/TextureButton"]
+position = Vector2( 14.3723, 28.0601 )
+scale = Vector2( 0.527478, 0.639999 )
+texture = ExtResource( 12 )
+
+[node name="MessengerNode" type="Node2D" parent="Scene1Nodes"]
+position = Vector2( -469.695, -204.386 )
+scale = Vector2( 4.01713, 1 )
+script = ExtResource( 13 )
+
+[node name="TextureButton" type="TextureButton" parent="Scene1Nodes/MessengerNode"]
+margin_left = 1.61194
+margin_top = -8.63391
+margin_right = 41.6119
+margin_bottom = 31.3661
+rect_scale = Vector2( 0.317058, 1.16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Scene1Nodes/MessengerNode/TextureButton"]
+position = Vector2( 14.3722, 31.6899 )
+scale = Vector2( 0.496072, 0.532542 )
+texture = ExtResource( 17 )
+
+[node name="PortnetExplorerNode" type="Node2D" parent="Scene1Nodes"]
+position = Vector2( -470.748, -108.596 )
+scale = Vector2( 4.01713, 1 )
+script = ExtResource( 13 )
+
+[node name="TextureButton" type="TextureButton" parent="Scene1Nodes/PortnetExplorerNode"]
+margin_left = 1.61194
+margin_top = -8.63391
+margin_right = 41.6119
+margin_bottom = 31.3661
+rect_scale = Vector2( 0.317058, 1.16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Scene1Nodes/PortnetExplorerNode/TextureButton"]
+position = Vector2( 14.3722, 31.6899 )
+scale = Vector2( 0.496072, 0.532542 )
+texture = ExtResource( 20 )
+
+[node name="AntiVirusNode" type="Node2D" parent="Scene1Nodes"]
+position = Vector2( -469.696, -13.8592 )
+scale = Vector2( 4.01713, 1 )
+script = ExtResource( 13 )
+
+[node name="TextureButton" type="TextureButton" parent="Scene1Nodes/AntiVirusNode"]
+margin_left = 1.61194
+margin_top = -8.63391
+margin_right = 41.6119
+margin_bottom = 31.3661
+rect_scale = Vector2( 0.317058, 1.16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Scene1Nodes/AntiVirusNode/TextureButton"]
+position = Vector2( 14.3722, 31.6899 )
+scale = Vector2( 0.496072, 0.532542 )
+texture = ExtResource( 14 )
+
+[node name="RepairToolNode" type="Node2D" parent="Scene1Nodes"]
+position = Vector2( -469.696, 78.7725 )
+scale = Vector2( 4.01713, 1 )
+script = ExtResource( 13 )
+
+[node name="TextureButton" type="TextureButton" parent="Scene1Nodes/RepairToolNode"]
+margin_left = 1.61194
+margin_top = -8.63391
+margin_right = 41.6119
+margin_bottom = 31.3661
+rect_scale = Vector2( 0.317058, 1.16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Scene1Nodes/RepairToolNode/TextureButton"]
+position = Vector2( 14.3722, 31.6899 )
+scale = Vector2( 0.496072, 0.532542 )
+texture = ExtResource( 16 )
+
+[node name="TextQuestNode" type="Node2D" parent="Scene1Nodes"]
+position = Vector2( -471.801, 164.036 )
+scale = Vector2( 4.01713, 1 )
+script = ExtResource( 13 )
+
+[node name="TextureButton" type="TextureButton" parent="Scene1Nodes/TextQuestNode"]
+margin_left = 1.61194
+margin_top = -8.63391
+margin_right = 41.6119
+margin_bottom = 31.3661
+rect_scale = Vector2( 0.317058, 1.16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Scene1Nodes/TextQuestNode/TextureButton"]
+position = Vector2( 14.3722, 31.6899 )
+scale = Vector2( 0.496072, 0.532542 )
+texture = ExtResource( 21 )
+
+[node name="RecyclingBinNode" type="Node2D" parent="Scene1Nodes"]
+position = Vector2( 397.674, 244.036 )
+scale = Vector2( 4.01713, 1 )
+script = ExtResource( 13 )
+
+[node name="TextureButton" type="TextureButton" parent="Scene1Nodes/RecyclingBinNode"]
+margin_left = 1.61194
+margin_top = -8.63391
+margin_right = 41.6119
+margin_bottom = 31.3661
+rect_scale = Vector2( 0.317058, 1.16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Scene1Nodes/RecyclingBinNode/TextureButton"]
+position = Vector2( 14.3722, 31.6899 )
+scale = Vector2( 0.496072, 0.532542 )
+texture = ExtResource( 18 )
+
+[node name="Area2D" type="Area2D" parent="Scene1Nodes"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene1Nodes/Area2D"]
+position = Vector2( -8.42102, -12.6316 )
+scale = Vector2( 48.88, 37.2543 )
+shape = SubResource( 3 )
+
+[node name="StartButtonNode" type="Node2D" parent="Scene1Nodes"]
+position = Vector2( -431.579, 345.263 )
+scale = Vector2( 0.919999, 0.84 )
+z_index = -100
+
+[node name="TextureButton" type="TextureButton" parent="Scene1Nodes/StartButtonNode"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Scene1Nodes/StartButtonNode/TextureButton"]
+position = Vector2( -3.4325, 1.25311 )
+texture = ExtResource( 15 )
+
+[node name="MouseNode" type="Node2D" parent="Scene1Nodes"]
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Scene1Nodes"]
+stream = ExtResource( 23 )
+
+[node name="SceneChangeNode" type="Node2D" parent="Scene1Nodes"]
+script = ExtResource( 1 )
+
+[node name="TextureButton" type="TextureButton" parent="Scene1Nodes/SceneChangeNode"]
+margin_left = 523.784
+margin_top = -354.184
+margin_right = 749.784
+margin_bottom = -159.184
+rect_scale = Vector2( 0.4, 0.440003 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Scene1Nodes/EscButton/Button" to="Scene1Nodes/EscButton" method="_on_Button_pressed"]
+[connection signal="pressed" from="Scene1Nodes/MyComputerNode/TextureButton" to="Scene1Nodes/MyComputerNode" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Scene1Nodes/PortmailNode/TextureButton" to="Scene1Nodes/PortmailNode" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Scene1Nodes/MessengerNode/TextureButton" to="Scene1Nodes/MessengerNode" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Scene1Nodes/PortnetExplorerNode/TextureButton" to="Scene1Nodes/PortnetExplorerNode" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Scene1Nodes/AntiVirusNode/TextureButton" to="Scene1Nodes/AntiVirusNode" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Scene1Nodes/RepairToolNode/TextureButton" to="Scene1Nodes/RepairToolNode" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Scene1Nodes/TextQuestNode/TextureButton" to="Scene1Nodes/TextQuestNode" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Scene1Nodes/RecyclingBinNode/TextureButton" to="Scene1Nodes/RecyclingBinNode" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Scene1Nodes/Area2D" to="Scene1Nodes" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Scene1Nodes/Area2D" to="Scene1Nodes" method="_on_Area2D_mouse_exited"]
+[connection signal="pressed" from="Scene1Nodes/SceneChangeNode/TextureButton" to="Scene1Nodes/SceneChangeNode" method="_on_TextureButton_pressed"]
