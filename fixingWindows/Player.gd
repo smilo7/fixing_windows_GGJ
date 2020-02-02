@@ -34,7 +34,7 @@ func _input(event):
 		if view_x_pos > -70 and view_x_pos < 70:
 			rotation_degrees.x -= MOUSE_SENS * event.relative.y
 			view_x_pos -= MOUSE_SENS * event.relative.y
-			print(view_x_pos)
+			#print(view_x_pos)
 		else:
 			if view_x_pos > -70:
 				view_x_pos -= 1
@@ -98,8 +98,15 @@ func _physics_process(delta):
 		anim_player.play("attack")
 		wrench_count.decrease_wrenches()
 		var coll = raycast.get_collider()
+		print(coll)
 		if raycast.is_colliding() and coll.has_method("kill"): #if object it is colliding with has a kill method then kill it
+			
+			print("enemy should die")
 			coll.kill()
+		elif raycast.is_colliding() and coll.has_method("repair"): #for window reparing
+			coll.repair()
+			
+			
 	
 func kill():
 	get_tree().reload_current_scene()

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fighting_music.wav-106ab6b0c50dfec855e00ab71273d027.sample"
+
+[deps]
+
+source_file="res://Music/fighting_music.wav"
+dest_files=[ "res://.import/fighting_music.wav-106ab6b0c50dfec855e00ab71273d027.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
