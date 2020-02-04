@@ -1,0 +1,206 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Sprites/splash_button_click.png" type="Texture" id=1]
+[ext_resource path="res://Symtext.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Sprites/splash_button.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/splash_back.png" type="Texture" id=4]
+[ext_resource path="res://menu_panel.gd" type="Script" id=5]
+[ext_resource path="res://Music/zombie_groan.wav" type="AudioStream" id=6]
+[ext_resource path="res://new_game.gd" type="Script" id=7]
+[ext_resource path="res://Music/screen_music.wav" type="AudioStream" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "blood"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.6, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 1, 2, 3, 5, 6, 7, 8, 9 ]
+}
+
+[sub_resource type="DynamicFont" id=7]
+size = 100
+outline_size = 12
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 89
+font_data = ExtResource( 2 )
+
+[node name="Main_Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu_panel" type="Panel" parent="."]
+anchor_left = 0.099
+anchor_top = 0.248
+anchor_right = 0.923
+anchor_bottom = 0.863
+margin_left = -165.44
+margin_top = -290.12
+margin_right = 158.12
+margin_bottom = 180.28
+theme = SubResource( 4 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu_back" type="Sprite" parent="menu_panel"]
+position = Vector2( 1216.23, 679.265 )
+scale = Vector2( 31.8934, 24.5676 )
+texture = ExtResource( 4 )
+hframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="menu_panel/menu_back"]
+anims/blood = SubResource( 8 )
+
+[node name="Label" type="Label" parent="menu_panel"]
+margin_left = 97.0
+margin_top = 51.0
+margin_right = 1061.0
+margin_bottom = 230.0
+custom_fonts/font = SubResource( 7 )
+text = "Fixing windows"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="new_game" type="TextureButton" parent="menu_panel"]
+anchor_left = 0.047
+anchor_top = 0.201
+anchor_right = 0.936
+anchor_bottom = 0.349
+margin_left = 8.05817
+margin_top = 97.153
+margin_right = 9.12109
+margin_bottom = 96.465
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="menu_panel/new_game"]
+anchor_left = 0.323
+anchor_top = 0.04
+anchor_right = 0.675
+anchor_bottom = 0.96
+margin_left = -0.972046
+margin_top = -9.53674e-07
+margin_right = 0.299927
+custom_fonts/font = SubResource( 6 )
+text = "New Game"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="zombie_groan" type="AudioStreamPlayer2D" parent="menu_panel/new_game"]
+position = Vector2( -210.409, -436.709 )
+stream = ExtResource( 6 )
+volume_db = 3.759
+
+[node name="credits" type="TextureButton" parent="menu_panel"]
+anchor_left = 0.047
+anchor_top = 0.201
+anchor_right = 0.936
+anchor_bottom = 0.349
+margin_left = 8.05817
+margin_top = 307.39
+margin_right = 9.12109
+margin_bottom = 306.702
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="menu_panel/credits"]
+anchor_left = 0.323
+anchor_top = 0.04
+anchor_right = 0.675
+anchor_bottom = 0.96
+margin_left = -0.972046
+margin_top = -9.53674e-07
+margin_right = 0.299927
+custom_fonts/font = SubResource( 6 )
+text = "Credits"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit" type="TextureButton" parent="menu_panel"]
+anchor_left = 0.047
+anchor_top = 0.201
+anchor_right = 0.936
+anchor_bottom = 0.349
+margin_left = 8.05842
+margin_top = 685.817
+margin_right = 9.12134
+margin_bottom = 685.129
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="menu_panel/quit"]
+anchor_left = 0.323
+anchor_top = 0.04
+anchor_right = 0.675
+anchor_bottom = 0.96
+margin_left = -9.38123
+margin_top = 4.20471
+margin_right = -8.10925
+margin_bottom = 4.20471
+custom_fonts/font = SubResource( 6 )
+text = "Quit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu_music" type="AudioStreamPlayer2D" parent="menu_panel"]
+position = Vector2( -88, -67 )
+stream = ExtResource( 8 )
+volume_db = 6.265
+attenuation = 0.143587
